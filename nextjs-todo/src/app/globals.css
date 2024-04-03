@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main {
+  height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+}
