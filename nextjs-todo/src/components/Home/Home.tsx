@@ -11,7 +11,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import Table from "@/components/Table";
+import Table from "../Table";
 
 
 

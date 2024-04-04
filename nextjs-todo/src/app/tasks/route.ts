@@ -2,19 +2,22 @@ import axios from "axios";
 
 export async function GET() {
     try{
-        const response = axios.get(`${process.env.REACT_APP_SERVER_URL}/tasks`)
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/tasks`)
         console.log(response)
-        return response
-    }catch(err){
+        return Response.json(response?.data, {status: response?.status});
+    }catch(err : any ){
         console.log(err)
-        return 
+        return new Response(err?.message ?? "Something went wrong", {
+                    status: err?.response?.status ?? 500,
+                  });
     }
 }
 
-export async function POST() {
-    const response = axios.get(`${process.env.REACT_APP_SERVER_URL}/tasks`)
-    console.log(response)
-    return response
+export async function POST(req: Request) {
+    console.log(req.body)
+    // const response = axios.get(`${process.env.REACT_APP_SERVER_URL}/tasks`)
+    // console.log(response)
+    // return response
 }
 
 export async function PUT() {
